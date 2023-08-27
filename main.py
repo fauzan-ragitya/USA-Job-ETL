@@ -1,7 +1,5 @@
 from datetime import datetime
 import yaml
-import sys
-# sys.path.append('mdoul')
 from modules.extraction import ExtractionHandler
 from modules.load import PostgresHandler
 def destination_config_handler() -> dict:
@@ -12,7 +10,6 @@ def destination_config_handler() -> dict:
     with open(config_filename, 'r') as f:
         dest_config = yaml.load(f, Loader=yaml.FullLoader)
     return dest_config
-
 
 if __name__ == '__main__':
     execution_time = datetime.now()

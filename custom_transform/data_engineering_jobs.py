@@ -1,3 +1,4 @@
+#dataframe variable is initialized in the transform_data function
 dataframe = dataframe[['PositionID',
                        'PositionTitle',
                        'PositionURI',
@@ -57,3 +58,4 @@ for row in arr_position_remuneration:
         new_row.append(new_remuneration)
     new_position_remuneration_arr.append(new_row)
 dataframe['position_remuneration'] = new_position_remuneration_arr
+#make sure that we save our final transformation result in 'dataframe' variable again

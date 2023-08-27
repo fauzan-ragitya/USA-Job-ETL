@@ -79,23 +79,6 @@ class ExtractionHandler(object):
             result = _locals['dataframe']
             transform_filename = os.path.join(transform_dirname,current_file)
             result.to_json(transform_filename,orient='records', indent=2)
-
-            # current_file = ext.split('/')[-1]
-            # with open(ext,'r') as ext_read:
-            #     json_o = json.load(ext_read)
-
-            # search_result_items = json_o['SearchResult']['SearchResultItems']
-            # result = []
-            # for el in search_result_items:
-            #     matched_object_descriptor = el['MatchedObjectDescriptor']
-            #     parsed_object = {}
-            #     for field in parsed_fields:
-            #         parsed_object[field] = matched_object_descriptor[field]
-            #     result.append(parsed_object)
-
-            # transform_filename = os.path.join(transform_dirname,current_file)
-            # with open(transform_filename, 'w') as outputfile:
-            #     json.dump(result,outputfile,indent=2)
                 
         notes_filename = os.path.join(transform_dirname,'updated_at.txt') #contains last updated time of the extraction
         with open(notes_filename,'w') as outf:
