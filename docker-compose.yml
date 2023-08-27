@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  database:
+    image: "postgres:11"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    env_file:
+      - .env
+
+  app:
+    build: .
+    depends_on:
+      - database      
+    volumes:
+      - .:/code
+    env_file:
+      - .env

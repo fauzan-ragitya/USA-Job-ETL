@@ -1,0 +1,6 @@
+python-dotenv
+requests
+pyyaml
+SQLAlchemy==1.4.47
+pandas
+psycopg2

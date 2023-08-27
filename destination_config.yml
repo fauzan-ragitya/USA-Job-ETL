@@ -1,0 +1,27 @@
+tables:
+  - name: data_engineering_jobs
+    params:
+      keyword: data engineering
+      ResultsPerPage: 500
+    custom_transformation_file: custom_transform/data_engineering_jobs.py
+    db_schema:
+      - column_name: position_id #we will use this name in db
+        type: VARCHAR
+      - column_name: position_title
+        type: VARCHAR
+      - column_name: position_uri
+        type: VARCHAR
+      - column_name: position_location
+        type: JSON[]
+      - column_name: position_remuneration
+        type: JSON[]
+  # - name: software_jobs
+  #   params:
+  #     keyword: software
+  #     ResultsPerPage: 500
+  #   parsed_fields:
+  #     - PositionID
+  #     - PositionTitle
+  #     - PositionURI
+  #     - PositionLocation
+  #     - PositionRemuneration
