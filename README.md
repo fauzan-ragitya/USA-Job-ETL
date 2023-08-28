@@ -67,7 +67,7 @@ After the script is finished, we should see several JSON files created in the fi
 We can either check it directly on our repo (if we run local development) or inspect the app image if we execute it in container.
 
 Image below is a file snippet of the transform result.
-![Sample of transform result](image.png)
+![Sample of transform result](img/image-2.png)
 
 ### Result in DB
 We can check the result on the DB by inspecting it and executing SELECT query.
