@@ -43,22 +43,34 @@ Detailed explanation:
 - `Dockerfile` and `docker-compose.yml`: skeleton to build and containerize the application.
 - `.env` : serves as environment variable in the container. Before running the program, we need to configure it. The format follows `.env.template` file that is uploaded to git repository.
 
+## How to run the script
+
 ### Docker container execution
 Executing this command
 ```
 docker-compose up
 ```
-will consecutively build db image and app image, and utilize it in container. `python3 main.py` will be executed upon completion of the containerization sequence in `Dockerfile`
+will consecutively build db image and app image, in which we will utilize it in the container. `python3 main.py` will be executed upon completion of the containerization sequence in `Dockerfile`
 
 After it is successfully executed, we will get this message in the log.
-![Alt text](img/image.png)
-
-We can also ensure the data availability by inspecting the DB and run SELECT query.
-
-Execute `docker exec -it {db_container_name} bash` -> `psql -d {db_name}` -> Run SELECT query
-![Alt text](img/image-1.png)
+![Log message upon success](img/image.png)
 
 ### Local execution (for development purpose)
 During development, I mostly only spawn the database on docker but execute the app locally. This way, the iteration and debugging process would be faster. 
 
-In order to do this option, we will need to change host name to `host = 'localhost'` in load.py init function (+ installing dependencies on requirements.txt and ensure the PostgreSQL DB is running).
+In order to do this option, we will need to change host name to `host = 'localhost'` in *load.py* init function (+ installing dependencies on requirements.txt and ensure the PostgreSQL DB is running).
+
+## Expected result
+### Extract and transform
+After the script is finished, we should see several JSON files created in the file system.
+
+We can either check it directly on our repo (if we run local development) or inspect the app image if we execute it in container.
+
+Image below is a file snippet of the transform result.
+![Sample of transform result](image.png)
+
+### Result in DB
+We can check the result on the DB by inspecting it and executing SELECT query.
+
+Execute `docker exec -it {db_container_name} bash` -> `psql -d {db_name}` -> Run SELECT query
+![Query result in DB](img/image-1.png)

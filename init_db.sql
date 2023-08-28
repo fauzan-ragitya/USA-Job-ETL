@@ -1,2 +1,1 @@
 CREATE DATABASE "${POSTGRES_DB}";
--- CREATE TABLE IF NOT EXISTS data_engineering_jobs;

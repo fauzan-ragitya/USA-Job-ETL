@@ -1,6 +1,6 @@
 tables:
   - name: data_engineering_jobs
-    params:
+    params: #query params
       keyword: data engineering
       ResultsPerPage: 500
     custom_transformation_file: custom_transform/data_engineering_jobs.py # series of specific pandas transformation logic to the table. 
@@ -15,13 +15,15 @@ tables:
         type: JSON[]
       - column_name: position_remuneration
         type: JSON[]
-  # - name: software_jobs
+  # - name: software_jobs #if we want to process another table
   #   params:
   #     keyword: software
   #     ResultsPerPage: 500
-  #   parsed_fields:
-  #     - PositionID
-  #     - PositionTitle
-  #     - PositionURI
-  #     - PositionLocation
-  #     - PositionRemuneration
+    # custom_transformation_file: custom_transform/.....py # logics and processes inside could be different from the first table
+    # db_schema: # freely customized, could be different from the first table
+    #   - column_name: position_id 
+    #     type: VARCHAR
+    #   - column_name: position_title
+    #     type: VARCHAR
+    #   - column_name: position_uri
+    #     type: VARCHAR
